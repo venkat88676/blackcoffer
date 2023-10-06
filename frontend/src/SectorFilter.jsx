@@ -1,12 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-function SectorFilter(props) {
-    const {filter,typeOfFilter}=props
-  // Convert the Set to an array
+
+function SectorFilter(props) {  
+
+  const {filter,typeOfFilter,getValue}=props
+
   const sectorArray = Array.from(filter);
 
+
   return (
-    <select id="sectorFilter">
+    <select id="sectorFilter" onChange={(e)=>{    
+        getValue(e.target.value,typeOfFilter)
+    }}>
       <option value="">Choose {typeOfFilter}</option>
       {sectorArray.map((sector, index) => (
         <option key={index} value={sector}>

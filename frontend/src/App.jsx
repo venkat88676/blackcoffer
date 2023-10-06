@@ -14,10 +14,17 @@ function App() {
   const [sectors, setSector] = useState(new Set());
   const [country, setCountry] = useState(new Set());
   const [topic, setTopic] = useState(new Set());
+  const [filter,setFilter] = useState("");
+  const [filterValue,setFilterValue] = useState("")
 
+  function getValue(value,filter){
+    console.log("value is",value,filter)
+    setFilter(filter);
+    setFilterValue(value)
+  }
 
   useEffect(() => {
-    fetch("http://localhost:8800/getdata")
+    fetch(`http://localhost:8800/getdata?filter=${filter}&filterValue=${filterValue}`)
       .then((res) => res.json())
       .then((data) => {
   
@@ -32,13 +39,25 @@ function App() {
         console.log("data", data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [filter,filterValue]);
   return (
     <div className="App">
       <Navbar></Navbar>
-      <SectorFilter filter={sectors} typeOfFilter={"Sector"}></SectorFilter>
-      <SectorFilter filter={country} typeOfFilter={"Country"}></SectorFilter>
-      <SectorFilter filter={topic} typeOfFilter={"Topic"}></SectorFilter>
+      <SectorFilter 
+        filter={sectors} 
+        typeOfFilter={"sector"} 
+        getValue={getValue}
+      />
+      <SectorFilter 
+        filter={country} 
+        typeOfFilter={"country"}
+        getValue={getValue}
+      />
+      <SectorFilter 
+        filter={topic} 
+        typeOfFilter={"topic"}
+        getValue={getValue}
+      />
       
       <div id="body">
         <div id="tableBody">

@@ -11,8 +11,14 @@ app.use(cors())
 
 
 app.get('/getdata',async(req,res)=>{
+    let {filter,filterValue} = req.query
+    console.log("filter",filter,filterValue)
+    let obj={}
+    if(filter && filterValue){
+        obj[filter]=filterValue
+    }
     try{
-        const data=await Datamodel.find();
+        const data=await Datamodel.find(obj);
         res.send(data);
     }catch(err){
         res.send({"error":err})
