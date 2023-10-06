@@ -10,18 +10,45 @@
 
 #barchart{
   margin-top: 10px;
-  margin-left: 90px;
+  /* margin-left: 90px; */
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   padding: 5px;
-  width:900px;
+  width:800px;
   height:300px;
 }
 #scatterplot{
   margin-top: 10px;
-  margin-left: 90px;
+  /* margin-left: 90px; */
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   padding: 15px;
-  width:900px;
-  height:400px;
+  width:800px;
+  height:300px;
   
+}
+#body{
+  text-align: center;
+  display: flex;
+  /* border: solid red; */
+  justify-content: space-evenly;
+}
+#tableBody{
+  /* border:solid red; */
+  height: 600px;
+  overflow: auto;
+  width: 48%;
+}
+#graphBody{
+  /* border:solid red; */
+  width: 48%;
+}
+#tableCont th{
+  background-color: rgb(98, 157, 209);
+}
+td{
+  background-color: rgb(222, 224, 225);
+}
+table{
+
+  margin-top: 10px;
+  border: 0.5px solid rgb(219, 139, 60);
 }
