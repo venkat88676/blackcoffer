@@ -7,7 +7,7 @@ function SectorFilter(props) {
 
   const sectorArray = Array.from(filter);
 
-
+  // console.log("filterrr",filter)
   return (
     <select id="sectorFilter" onChange={(e)=>{    
         getValue(e.target.value,typeOfFilter)

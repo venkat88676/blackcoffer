@@ -12,10 +12,10 @@ import PieChart from "./Piechart";
 
 function App() {
   const sectorCounts = {};
-  const sectors = new Set();
-  const country = new Set();
-  const topic = new Set();
 
+  const [sectors,setSector] = useState(new Set())
+  const [country,setCountry] = useState(new Set())
+  const [topic,setTopic] = useState(new Set())
   const [data, setData] = useState([]);
   const [pieChartData, setPieChartData] = useState([]);
   const [filter, setFilter] = useState("");
@@ -36,29 +36,33 @@ function App() {
         setData(data);
 
         data.map((e) => {
-          let obj = {};
+          
           if (sectorCounts[e.sector]) {
             sectorCounts[e.sector]++;
           } else {
             sectorCounts[e.sector] = 1;
           }
+
           let a = Object.entries(sectorCounts).map(([sector, value]) => ({
             sector,
             value,
           }));
+
           setPieChartData(a);
+
+         
 
           sectors.add(e.sector);
           country.add(e.country);
           topic.add(e.topic);
         });
-
+       
         // console.log("sec",sectors)
         // console.log("data", data);
       })
       .catch((err) => console.log(err));
   }, [filter, filterValue]);
-
+  console.log("pie",pieChartData)
   return (
     <div className="App">
       <Navbar></Navbar>

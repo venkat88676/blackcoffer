@@ -54,14 +54,15 @@ table{
 }
 /* In your CSS file or style block */
 .color-code {
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   display: inline-block;
-  /* margin-right: 5px; Add some spacing between color code and label */
+  /* margin-right: 5px; */
 }
 .label-container{
-  display: flex;
-  font-size: 10px;
+  font-size: 12px;
+ text-align: right;
+
   /* border: solid red; */
   /* position: absolute; */
   /* top: 200px; */
